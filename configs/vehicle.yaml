@@ -1,0 +1,5 @@
+# Vehicle and navigation assumptions used for required clearance.
+# These are ASSUMPTIONS. State them in the report, and justify each value in a comment.
+vehicle_half_span_m: 0.6      # TODO: justify (e.g. a typical small quadcopter, motor-to-motor/2)
+nav_error_3sigma_m: 1.5       # TODO: justify (e.g. assumed position error during descent)
+# r_req = vehicle_half_span_m + nav_error_3sigma_m

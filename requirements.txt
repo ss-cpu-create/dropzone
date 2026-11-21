@@ -1,0 +1,15 @@
+# Core dependencies. Once your environment works, pin exact versions with:
+#   pip freeze > requirements-lock.txt
+# and commit that file, so both of you (and reviewers) get identical results.
+torch
+torchvision
+transformers
+albumentations
+opencv-python
+numpy
+scipy
+scikit-image
+pandas
+matplotlib
+pyyaml
+pytest

@@ -1,0 +1,29 @@
+# Starting point for training. Tune on the VAL split only.
+model:
+  name: segformer-b0          # pretrained MiT-B0 encoder (Hugging Face)
+  baseline: deeplabv3plus-resnet50
+input:
+  strategy: crops             # "crops" (random 512x512, sliding-window at test) or "resize"
+  crop_size: 512
+  resize_long_side: 1024      # used only if strategy == resize
+augment:
+  hflip: true
+  vflip: true
+  rot90: true                 # valid for nadir views
+  color_jitter: 0.1
+train:
+  optimizer: adamw
+  lr: 6.0e-5
+  weight_decay: 0.01
+  schedule: cosine
+  epochs: 50
+  batch_size: 8
+  early_stopping_metric: val_mIoU
+  seeds: [0, 1, 2]
+uncertainty:
+  mc_dropout_passes: 20
+  ensemble_size: 0            # set to 3-5 if MC dropout is too weak
+calibration:
+  method: temperature_scaling
+  fit_on: val
+  ece_bins: 15

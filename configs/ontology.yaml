@@ -1,0 +1,16 @@
+# Safety ontology: maps dataset classes to safety tiers.
+# STATUS: DRAFT. Verify every class name against the dataset's own label file,
+# agree on it together, then freeze it (see EXPERIMENTS.md).
+#
+# Tiers: 0 SAFE · 1 CAUTION · 2 UNSAFE · 3 UNKNOWN
+# Evaluation modes: strict (CAUTION counts as unsafe) and lenient (CAUTION counts as safe).
+
+semantic_drone_dataset:
+  SAFE:    [grass, dirt, gravel]
+  CAUTION: [paved-area, rocks]
+  UNSAFE:  [person, dog, car, bicycle, water, pool, tree, bald-tree, vegetation,
+            roof, wall, window, door, fence, fence-pole, obstacle]
+  UNKNOWN: [unlabeled, conflicting, ar-marker]
+
+# uavid:       TODO: separate mapping (different class set)
+# aeroscapes:  TODO: separate mapping (different class set)

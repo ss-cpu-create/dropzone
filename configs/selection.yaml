@@ -1,0 +1,13 @@
+# Site-selection parameters. Grid-search on VAL only, then write the chosen values here and freeze.
+risk:
+  k_grid: [0, 1, 2]           # R = P_unsafe + k * sigma_unsafe
+  tau_grid: [0.1, 0.2, 0.3]   # safe mask threshold on R
+  eps_grid: [0.05, 0.1]       # max mean risk inside the landing disk
+chosen:                       # fill in after the val sweep
+  k: null
+  tau: null
+  eps: null
+gsd:
+  car_length_prior_m: 4.5
+  car_length_sigma_m: 0.5
+  person_shoulder_prior_m: 0.45
